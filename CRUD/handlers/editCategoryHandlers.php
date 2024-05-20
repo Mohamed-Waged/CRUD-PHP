@@ -10,6 +10,7 @@ $success = [];
 
 if (checkRequestMethod('POST')) {
     $name = sanitizeValue($_POST['name']);
+    $price = $_POST['price'];
     $description = sanitizeValue($_POST['description']);
     $file_name = $_FILES['image']['name'];
 
@@ -35,25 +36,25 @@ if (checkRequestMethod('POST')) {
 
     if (empty($errors)) {
         if ($file_name != '') {
-            $sql = "UPDATE categories SET `name`='$name',`description`='$description' ,`image`='$file_name'
+            $sql = "UPDATE products SET `name`='$name',`price`='$price',`description`='$description' ,`image`='$file_name'
                     WHERE `id`='$_GET[id]' ";
             mysqli_query($conn, $sql);
             mysqli_close($conn);
-            $success['success'] = "Category Updated Successfully ";
+            $success['success'] = "Product Updated Successfully ";
             sessionStore('success', $success);
             redirectPath("../edit-category.php?id=$_GET[id]");
         }else{
                  // if image not update
                 
-            $sql = "SELECT * FROM  `categories` WHERE `id`='$_GET[id]' ";
+            $sql = "SELECT * FROM  `products` WHERE `id`='$_GET[id]' ";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
         
-            $sql = "UPDATE categories SET `name`='$name',`description`='$description' ,`image`='$row[image]'
+            $sql = "UPDATE products SET `name`='$name',`price`='$price',`description`='$description' ,`image`='$row[image]'
                     WHERE `id`='$_GET[id]' ";
             mysqli_query($conn, $sql);
             mysqli_close($conn);
-            $success['success'] = "Category Updated Successfully ";
+            $success['success'] = "Product Updated Successfully ";
             sessionStore('success', $success);
             redirectPath("../edit-category.php?id=$_GET[id]");
         }

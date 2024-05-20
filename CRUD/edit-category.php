@@ -8,12 +8,12 @@ include('inc/nav.php');
 <?php 
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $sql = "SELECT * FROM `categories`  WHERE `id` = '$id' ";
+        $sql = "SELECT * FROM `products`  WHERE `id` = '$id' ";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
         
         if(!$row){
-            $errors = "Category Not Exists !";
+            $errors = "Product Not Exists !";
             sessionStore('errors', $errors);
             redirectPath("categories.php");
             die;
@@ -24,7 +24,7 @@ include('inc/nav.php');
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="p-3 col text-center mt-5 text-white bg-primary"> Edit Category </h2>
+                <h2 class="p-3 col text-center mt-5 text-white bg-primary"> Edit Product </h2>
             </div>
 
 
@@ -62,6 +62,12 @@ include('inc/nav.php');
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" name="name" value="<?php echo $row['name']; ?>" class="form-control" id="name">
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" name="price" class="form-control" id="price" value="<?php echo $row['price']; ?>">
                     </div>
 
                     <div class="form-group">

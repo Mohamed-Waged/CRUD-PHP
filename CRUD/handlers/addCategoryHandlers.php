@@ -10,6 +10,7 @@ $success = [];
 if (checkRequestMethod('POST')) {
     $name = sanitizeValue($_POST['name']);
     $description = sanitizeValue($_POST['description']);
+    $price = $_POST['price'];
     $file_name = $_FILES['image']['name'];
     $file_temp_name = $_FILES['image']['tmp_name'];
     $folder = '../images/' . $file_name ;
@@ -39,12 +40,12 @@ if (checkRequestMethod('POST')) {
     }
 
     if (empty($errors)) {
-        $sql =  "INSERT INTO categories(`name`,`description`,`image`) 
-                    VALUES('$name','$description','$file_name')";
+        $sql =  "INSERT INTO products(`name`,`price`,`description`,`image`) 
+                    VALUES('$name','$price','$description','$file_name')";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
         move_uploaded_file($file_temp_name, $folder);
-        $success['success'] = "Category Added Successfully ";
+        $success['success'] = "Producr Added Successfully ";
         sessionStore('success', $success);
         redirectPath('../add-category.php');
     } else {

@@ -3,7 +3,7 @@ include('inc/header.php');
 include("database/conn.php") ;
 include('inc/nav.php'); 
 
-$sql = "SELECT * FROM  `categories` ORDER BY id ASC";
+$sql = "SELECT * FROM  `products` ORDER BY id ASC";
 $result = mysqli_query($conn, $sql);
 ?>
 
@@ -11,7 +11,7 @@ $result = mysqli_query($conn, $sql);
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h2 class="p-3 col text-center mt-5 text-white bg-primary"> All Categories </h2>
+            <h2 class="p-3 col text-center mt-5 text-white bg-primary"> All Products </h2>
         </div>
 
         <?php if (mysqli_num_rows($result)) : ?>
@@ -21,6 +21,7 @@ $result = mysqli_query($conn, $sql);
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
+                            <th>Price</th>
                             <th>Decription</th>
                             <th>Image</th>
                             <th>Edit</th>
@@ -30,9 +31,10 @@ $result = mysqli_query($conn, $sql);
                     <tbody>
                             <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                             <tr>
-                                <td><?php echo $row['id'];  ?></td>
-                                <td><?php echo $row['name'];  ?></td>
-                                <td><?php echo $row['description'];  ?></td>
+                                <td><?php echo $row['id'];?></td>
+                                <td><?php echo $row['name'];?></td>
+                                <td><?php echo $row['price'];?> <strong>$</strong></td>
+                                <td><?php echo $row['description'];?></td>
                                 <td>
                                     <img src="images/<?php echo $row['image']?>" alt="" style="width: 100px; height: 100px;">
                                 </td>
@@ -53,7 +55,7 @@ $result = mysqli_query($conn, $sql);
             </div>
         <?php else : ?>
             <div class="col-sm-12">
-                <h3 class="alert alert-danger mt-5 text-center"> No Categories Found </h3>
+                <h3 class="alert alert-danger mt-5 text-center"> No Products Found </h3>
             </div>
         <?php endif ; ?>
     </div>

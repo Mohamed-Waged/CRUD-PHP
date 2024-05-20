@@ -3,9 +3,9 @@
 $host = "localhost" ;
 $user =  "root" ;
 $password = "";
-$dbname = "eraasoft" ;
+$dbname = "eraasoft_crud" ;
 
-$conn =  mysqli_connect( $host , $user , $password,$dbname );
+$conn =  mysqli_connect($host,$user,$password,$dbname );
 if (!$conn) {
     echo "connect error " . mysqli_connect_error($conn);
 }

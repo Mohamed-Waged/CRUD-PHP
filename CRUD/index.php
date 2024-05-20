@@ -10,8 +10,8 @@
             </h2>
         </div>
         <div class="col-6 mt-5 mx-auto d-flex justify-content-between">
-            <button class="btn btn-primary"><a href="categories.php">Show All Categories</a></button>
-            <button class="btn btn-primary"><a href="add-category.php">Add New Category</a></button>
+            <button class="btn btn-primary"><a href="categories.php">Show All Products</a></button>
+            <button class="btn btn-primary"><a href="add-category.php">Add New Product</a></button>
         </div>
     </div>
 </div>

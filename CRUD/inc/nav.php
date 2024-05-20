@@ -5,10 +5,10 @@
                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="categories.php">Categories</a>
+                <a class="nav-link" href="categories.php">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="add-category.php">Add Category</a>
+                <a class="nav-link" href="add-category.php">Add Product</a>
             </li>
 
         </ul>

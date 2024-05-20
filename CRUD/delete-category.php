@@ -6,17 +6,17 @@ include('database/conn.php');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM `categories`  WHERE `id` = '$id' ";
+    $sql = "SELECT * FROM `products`  WHERE `id` = '$id' ";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_row($result);
 
     if (!$row) {
-        $errors = "Category Not Exists";
+        $errors = "Product Not Exists";
         sessionStore('errors', $errors);
     } else {
-        $sql = "DELETE FROM `categories`  WHERE `id` = '$id' ";
+        $sql = "DELETE FROM `products`  WHERE `id` = '$id' ";
         $result = mysqli_query($conn, $sql);
-        $success = "Category Deleted Succesfully";
+        $success = "Product Deleted Succesfully";
         sessionStore('success', $success);
     }
     header("refresh:1;url=categories.php"); 
@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="p-3 col text-center mt-5 text-white bg-primary">  Delete Category </h2>
+                <h2 class="p-3 col text-center mt-5 text-white bg-primary">  Delete Product </h2>
             </div>
 
             <div class="col-sm-12">
@@ -43,7 +43,7 @@ if (isset($_GET['id'])) {
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3 class="alert alert-danger mt-5 text-center"> Category ID Not Found </h3>
+                <h3 class="alert alert-danger mt-5 text-center"> Product ID Not Found </h3>
             </div>
         </div>
     </div>
