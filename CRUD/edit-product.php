@@ -15,7 +15,7 @@ include('inc/nav.php');
         if(!$row){
             $errors = "Product Not Exists !";
             sessionStore('errors', $errors);
-            redirectPath("categories.php");
+            redirectPath("products.php");
             die;
         }
     }
@@ -47,7 +47,7 @@ include('inc/nav.php');
                             <div class="alert alert-success text-center">
                                 <?php 
                                     echo $success;
-                                    header("refresh:1;url=categories.php"); 
+                                    header("refresh:1;url=products.php"); 
                                 ?>
                             </div>
                     <?php
@@ -58,7 +58,7 @@ include('inc/nav.php');
             </div>
 
             <div class="col-sm-12">
-                <form method="post" action="handlers/editCategoryHandlers.php?id=<?php echo $row['id']; ?>" enctype="multipart/form-data">
+                <form method="post" action="handlers/editProductHandlers.php?id=<?php echo $row['id']; ?>" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" name="name" value="<?php echo $row['name']; ?>" class="form-control" id="name">
@@ -81,7 +81,7 @@ include('inc/nav.php');
                         <img class="rounded mt-2" src="images/<?php echo $row['image']?>" alt="" style="width: 200px;">
                     </div>
 
-                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-warning">Update</button>
                 </form>
             </div>
         </div>

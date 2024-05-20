@@ -38,7 +38,7 @@ include('inc/nav.php');
         </div>
 
         <div class="col-sm-12">
-            <form method="POST" action="handlers/addCategoryHandlers.php" enctype="multipart/form-data">
+            <form method="POST" action="handlers/addProductHandlers.php" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" value="<?php if (isset($name)) echo $name ?>">

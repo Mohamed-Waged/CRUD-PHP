@@ -42,7 +42,7 @@ if (checkRequestMethod('POST')) {
             mysqli_close($conn);
             $success['success'] = "Product Updated Successfully ";
             sessionStore('success', $success);
-            redirectPath("../edit-category.php?id=$_GET[id]");
+            redirectPath("../edit-product.php?id=$_GET[id]");
         }else{
                  // if image not update
                 
@@ -56,11 +56,11 @@ if (checkRequestMethod('POST')) {
             mysqli_close($conn);
             $success['success'] = "Product Updated Successfully ";
             sessionStore('success', $success);
-            redirectPath("../edit-category.php?id=$_GET[id]");
+            redirectPath("../edit-product.php?id=$_GET[id]");
         }
     } else {
         sessionStore('errors', $errors);
-        redirectPath("../edit-category.php?id=$_GET[id]");
+        redirectPath("../edit-product.php?id=$_GET[id]");
     }
 }
 

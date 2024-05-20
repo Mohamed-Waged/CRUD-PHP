@@ -47,9 +47,9 @@ if (checkRequestMethod('POST')) {
         move_uploaded_file($file_temp_name, $folder);
         $success['success'] = "Producr Added Successfully ";
         sessionStore('success', $success);
-        redirectPath('../add-category.php');
+        redirectPath('../add-product.php');
     } else {
         sessionStore('errors', $errors);
-        redirectPath('../add-category.php');
+        redirectPath('../add-product.php');
     }
 }

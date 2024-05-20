@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
         $success = "Product Deleted Succesfully";
         sessionStore('success', $success);
     }
-    header("refresh:1;url=categories.php"); 
+    header("refresh:1;url=products.php"); 
 }
 
 ?>

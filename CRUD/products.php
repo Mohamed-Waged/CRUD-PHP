@@ -39,12 +39,12 @@ $result = mysqli_query($conn, $sql);
                                     <img src="images/<?php echo $row['image']?>" alt="" style="width: 100px; height: 100px;">
                                 </td>
                                 <td>
-                                    <a href="edit-category.php?id=<?php echo $row['id'] ?>" class="text-primary">
+                                    <a href="edit-product.php?id=<?php echo $row['id'] ?>" class="text-primary">
                                         <i class="fa fa-pencil-square-o fa-2x"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="delete-category.php?id=<?php echo $row['id'] ?>" class="text-danger">
+                                    <a href="delete-product.php?id=<?php echo $row['id'] ?>" class="text-danger">
                                         <i class="fa fa-times fa-2x"></i>
                                     </a>
                                 </td>
